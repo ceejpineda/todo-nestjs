@@ -52,9 +52,8 @@ Task {
 CREATE DATABASE todo;
 ```
 
-2. Configure environment variables:
+2. Configure environment variables (use .env.example as template):
 ```properties
-// filepath: /C:/Code/ToDo-Nestjs/todo-assignment/.env
 NODE_ENV=development
 DB_HOST=localhost
 DB_PORT=5432
