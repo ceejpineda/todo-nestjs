@@ -37,7 +37,7 @@ Task {
   id: number          // Primary Key
   title: string
   description: string
-  status: string      // enum: ['pending', 'in_progress', 'completed']
+  status: string
   userId: number      // Foreign Key
   user: User          // Many-to-One relationship
 }
@@ -47,18 +47,12 @@ Task {
 
 ### 1. Environment Setup
 
-1. Install PostgreSQL:
-```bash
-# Download and install from
-https://www.postgresql.org/download/windows/
-```
-
-2. Create database:
+1. Create database:
 ```sql
 CREATE DATABASE todo;
 ```
 
-3. Configure environment variables:
+2. Configure environment variables:
 ```properties
 // filepath: /C:/Code/ToDo-Nestjs/todo-assignment/.env
 NODE_ENV=development
@@ -77,12 +71,7 @@ JWT_SECRET=your_secure_secret
 npm install
 ```
 
-2. Run migrations:
-```bash
-npm run typeorm:run-migrations
-```
-
-3. Start development server:
+2. Start development server:
 ```bash
 npm run start:dev
 ```
@@ -125,9 +114,6 @@ curl -X POST http://localhost:3000/auth/login \
 # Unit tests
 npm run test
 
-# E2E tests
-npm run test:e2e
-
 # Coverage report
 npm run test:cov
 ```
@@ -138,55 +124,3 @@ npm run test:cov
 - JWT-based authentication
 - Token expiration
 - Password hashing
-
-2. Authorization:
-- Route guards
-- Role-based access
-- User ownership validation
-
-3. Data Validation:
-- Input sanitization
-- Request validation
-- SQL injection prevention
-
-## Deployment
-
-### Development
-```bash
-npm run start:dev
-```
-
-### Production
-```bash
-npm run build
-npm run start:prod
-```
-
-### Docker (Optional)
-```dockerfile
-// filepath: /C:/Code/ToDo-Nestjs/todo-assignment/Dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
-CMD ["npm", "run", "start:prod"]
-```
-
-## Monitoring and Maintenance
-
-1. Logging:
-- Request/Response logging
-- Error tracking
-- Performance monitoring
-
-2. Database:
-- Regular backups
-- Index optimization
-- Query performance
-
-3. Security:
-- Regular dependency updates
-- Security patches
-- Token rotation
