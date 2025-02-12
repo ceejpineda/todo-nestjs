@@ -5,9 +5,9 @@
 ### 1. Module Structure
 ```plaintext
 src/
-├── auth/              # Authentication handling
+├── guards/           # JWT guards
+├── auth/             # Authentication handling
 │   ├── dto/          # Data transfer objects
-│   ├── guards/       # JWT guards
 │   └── services/     # Auth business logic
 ├── user/             # User management
 │   ├── dto/
